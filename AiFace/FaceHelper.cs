@@ -58,6 +58,10 @@ namespace AiFace
             };
             // 带参数调用人脸注册
             var result = client.UserAdd(uid, userInfo, groupId, image);
+            if (result["error_code"].HasValues)
+            {
+                return false;
+            }
             return true;
         }
 
